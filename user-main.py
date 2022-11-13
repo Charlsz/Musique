@@ -1,10 +1,12 @@
 from tkinter import *
 from tkinter import ttk as ttk
+from tkinter import messagebox as Messagebox
 from user import usuario
 
 root = Tk()
 passUsuario = StringVar()
 nombreUsuario = StringVar()
+usuarios=[]
 
 def createGUI():
     #ventana principal
@@ -45,13 +47,30 @@ def createGUI():
     root.mainloop()
 
 def iniciarSesion():
-    global passUsuario
-    user1.conectar(passUsuario.get())
+    for user in usuarios:
+        if user.nombre==nombreUsuario.get():
+            test = user.conectar(passUsuario.get())
+            if test:
+                Messagebox.showinfo("Conectado",f"Se inicio sesion en [{user.nombre}] exitosamente!")
+                nombreUsuario.get()
+                passUsuario.get()
+            else:
+                Messagebox.showerror("Error","password incorrecta")
+            break
+    else:
+        Messagebox.showerror("Error","No existen usuarios con ese nombre")
 
 def registrarUsuario():
-    pass
+    name = nombreUsuario.get()
+    password = passUsuario.get()
+    newUser = usuario(name,password)
+    usuarios.append(newUser)
+    Messagebox.showinfo("Registro Exitoso",f"Se registro el usuario [{name}] correctamente!!!")
+    nombreUsuario.get()
+    passUsuario.get()
 
 
 if __name__=="__main__":
     user1 = usuario("carlos","1234")
+    usuarios.append(user1)
     createGUI()

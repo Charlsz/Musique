@@ -19,6 +19,7 @@ class usuario():
         if myContra==self.contra:
             print("se ha conectado")
             self.conectado = True
+            return True
         else:
             self.intentos-=1
             if self.intentos > 0:
