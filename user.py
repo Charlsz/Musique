@@ -11,8 +11,11 @@ class usuario():
 
         usuario.numUsuarios=+1
 
-    def conectar(self):
-        myContra = input("ingresa tu password: ")
+    def conectar(self,password=None):
+        if password==None:
+            myContra = input("ingresa tu password: ")
+        else:
+            myContra = password
         if myContra==self.contra:
             print("se ha conectado")
             self.conectado = True
@@ -20,6 +23,8 @@ class usuario():
             self.intentos-=1
             if self.intentos > 0:
                 print("password incorrecta, intentelo otra vez: ")
+                if password!=None:
+                    return False
                 print("intentos restantes: ", self.intentos)
                 self.conectar()
             else:
@@ -39,6 +44,7 @@ class usuario():
             conect = "desconectado"
         return f"mi nombre de usuario es {self.nombre} y estoy {conect}"
 
+"""
 user1 = usuario(input("escribe tu usuario: "),input("escribe tu password: "))
 print(user1)
 
@@ -47,3 +53,4 @@ print(user1)
 
 user1.desconectar()
 print(user1)
+"""
