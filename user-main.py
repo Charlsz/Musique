@@ -9,11 +9,52 @@ nombreUsuario = StringVar()
 usuarios=[]
 
 def createGUI():
+    root.title("Musique")
+    root.iconbitmap('icono_musique.ico')
+    root.geometry("1000x600")
+
+    mainFrame= Frame(root)
+    mainFrame.pack()
+    mainFrame.config(width=1000,height=600,)
+
+    tittle = Label(mainFrame,text='MUSIQUE',font="italic")
+    tittle.grid(column=0,padx=10,pady=10,row=0,columnspan=1)
+    #imagen1 = PhotoImage(file ='carpeta.jpg')
+    imagen2 = PhotoImage(file ='jugar.png')
+    imagen3 = PhotoImage(file ='pausa.png')
+    #imagen4 = PhotoImage(file ='repetir.png')
+    #imagen5 = PhotoImage(file ='stop.png')
+    imagen6 = PhotoImage(file ='atras.png')
+    #imagen7 = PhotoImage(file ='adelante.png')
+
+    #boton1 = Button(mainFrame, image= imagen1)
+    #boton1.grid(column=0, row=2, pady=10)
+    boton2 = Button(mainFrame, image= imagen2)
+    boton2.grid(column=1, row=2, pady=10)
+    boton3 = Button(mainFrame,image= imagen3)
+    boton3.grid(column=2, row=2, pady=10)
+    #boton4 = Button(mainFrame,image= imagen4)
+    #boton4.grid(column=3, row=2, pady=10)
+    #boton5 = Button(mainFrame, image= imagen5)
+    #boton5.grid(column=4, row=2, pady=10)
+    atras = Button(mainFrame, image= imagen6)
+    atras.grid(column=5, row=2, pady=10)
+    #adelante = Button(mainFrame, image= imagen7)
+    #adelante.grid(column=6, row=2, pady=10)
+
+    root.mainloop()
+
+
+
+
+def login_interfaz():
     #ventana principal
-    root.title("LOGIN")
+    musique = Toplevel()
+    musique.title("Musique")
+    musique.iconbitmap('icono_musique.ico')
 
     #de toda mi ventana, creare una subventada que sera mi main frame
-    mainFrame= Frame(root)
+    mainFrame= Frame(musique)
     mainFrame.pack()
     mainFrame.config(width=480,height=320,bg="#FFDFD3")
 
@@ -45,19 +86,18 @@ def createGUI():
     registerButton.grid(column=0,row=3,ipadx=5,ipady=5,padx=10,pady=10)
 
     #salir de login
-    exit = ttk.Button(mainFrame, text="Salir", command=root.destroy)
-    exit.grid(column=1,row=4,ipadx=5,ipady=5,padx=10,pady=10)
+    #exit = ttk.Button(mainFrame, text="Salir", command=root.destroy)
+    #exit.grid(column=1,row=4,ipadx=5,ipady=5,padx=10,pady=10)
 
-    root.mainloop()
-
-def iniciarSesion():
+def iniciarSesion(musique):
     for user in usuarios:
         if user.nombre==nombreUsuario.get():
             test = user.conectar(passUsuario.get())
             if test:
-                Messagebox.showinfo("Conectado",f"Se inicio sesion en [{user.nombre}] exitosamente!")
+                Messagebox.showinfo("Conectado",f"Se inicio sesion en [{user.nombre}] exitosamente!","Seguiremos al reproductor de musica MUSIQUE")
                 nombreUsuario.get()
                 passUsuario.get()
+                musique.iconify
             else:
                 Messagebox.showerror("Error","password incorrecta")
             break
@@ -74,7 +114,19 @@ def registrarUsuario():
     passUsuario.get()
 
 
+"""
+#ventana music player
+    reproductor = ttk.Button(mainFrame,text="ir a reproductor",command=musique)
+    reproductor.grid(column=1,row=3,ipadx=5,ipady=5,padx=10,pady=10)
+
+
+def cerrar_ventana():
+    root.iconify
+"""
+
+
 if __name__=="__main__":
     user1 = usuario("carlos","1234")
     usuarios.append(user1)
     createGUI()
+    #login_interfaz()
