@@ -16,9 +16,8 @@ def createGUI():
     title.pack(side="top",fill="x") 
 
     mainFrame= Frame(root)
-    mainFrame.pack()
-    mainFrame.config(width=1000,height=600,bg="black")
-    
+    mainFrame.pack(side='bottom')
+    mainFrame.config(bg="black")
 
     #imagen1 = PhotoImage(file ='carpeta.jpg')
     imagen2 = PhotoImage(file ='play.png')
@@ -31,17 +30,22 @@ def createGUI():
     #boton1 = Button(mainFrame, image= imagen1)
     #boton1.grid(column=0, row=2, pady=10)
     boton2 = Button(mainFrame, image= imagen2,command=Reproductor.play)
-    boton2.grid(column=1, row=2, pady=100)
+    boton2.grid(column=1, row=2, pady=10)
     boton3 = Button(mainFrame,image= imagen3,command=Reproductor.stop)
-    boton3.grid(column=2, row=2, pady=100)
+    boton3.grid(column=2, row=2, pady=10)
     #boton4 = Button(mainFrame,image= imagen4)
     #boton4.grid(column=3, row=2, pady=10)
     #boton5 = Button(mainFrame, image= imagen5)
     #boton5.grid(column=4, row=2, pady=10)
     atras = Button(mainFrame, image= imagen6,command=Reproductor.back)
-    atras.grid(column=5, row=2, pady=100)
+    atras.grid(column=5, row=2, pady=10)
     #adelante = Button(mainFrame, image= imagen7)
     #adelante.grid(column=6, row=2, pady=10)
+
+
+
+
+
 
     root.mainloop()
 
