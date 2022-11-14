@@ -15,7 +15,7 @@ def createGUI():
 
     mainFrame= Frame(root)
     mainFrame.pack()
-    mainFrame.config(width=1000,height=600,)
+    mainFrame.config(width=1000,height=300,bg="black")
 
     tittle = Label(mainFrame,text='MUSIQUE',font="italic")
     tittle.grid(column=0,padx=10,pady=10,row=0,columnspan=1)
