@@ -15,11 +15,11 @@ def createGUI():
     #de toda mi ventana, creare una subventada que sera mi main frame
     mainFrame= Frame(root)
     mainFrame.pack()
-    mainFrame.config(width=480,height=320)
+    mainFrame.config(width=480,height=320,bg="#FFDFD3")
 
     #titulos y textoss
     tittle = Label(mainFrame,text="Login usuarios",font="Arial")
-    tittle.grid(column=0,padx=10,pady=10,row=0,columnspan=2)
+    tittle.grid(column=0,padx=10,pady=10,row=0,columnspan=5)
 
     nombreLabel = Label(mainFrame,text="Usuario: ")
     nombreLabel.grid(column=0,row=1)
@@ -39,10 +39,14 @@ def createGUI():
 
     #botones
     iniciarSesionButton = ttk.Button(mainFrame, text="Iniciar Sesion",command=iniciarSesion)
-    iniciarSesionButton.grid(column=1,row=3,ipadx=5,ipady=5,padx=10,pady=10)
+    iniciarSesionButton.grid(column=2,row=3,ipadx=5,ipady=5,padx=10,pady=10)
 
     registerButton = ttk.Button(mainFrame, text="Registrar",command=registrarUsuario)
     registerButton.grid(column=0,row=3,ipadx=5,ipady=5,padx=10,pady=10)
+
+    #salir de login
+    exit = ttk.Button(mainFrame, text="Salir", command=root.destroy)
+    exit.grid(column=1,row=4,ipadx=5,ipady=5,padx=10,pady=10)
 
     root.mainloop()
 
