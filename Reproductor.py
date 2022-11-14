@@ -19,8 +19,10 @@ class Reproductor:
     def resume():
         pygame.mixer.music.unpause()
 
-    def backwards():
-        pass
+    def back():
+        pygame.mixer.stop()
+        pygame.mixer.music.load("Skyfullofstars.wav") 
+        pygame.mixer.music.play(loops=0) 
 
     def forward():
         pass
