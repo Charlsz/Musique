@@ -1,4 +1,4 @@
-from CircularDoublyLinkedList import CicularDoublyLinkedList
+from Circulardoblylinkedlist import CicularDoublyLinkedList
 Playlist = CicularDoublyLinkedList()
 
 with open("Rutas.txt","r") as file:
