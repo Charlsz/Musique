@@ -20,11 +20,8 @@ class CicularDoublyLinkedList:
 
     def show(self):
             p = self.ult
-            print("PTR", end = "<->")
-            print(p.data, end="<->")
             p = p.prev
             while(p != self.ult):
-                print(p.data, end ="<->")
                 p = p.prev
-            print("ULT")
+            
             

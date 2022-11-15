@@ -7,10 +7,6 @@ class PlayList:
                 a = []
                 a = line.split(",")
                 self.Playlist.addnode(a[0], a[1])
-            print("")
-            print("LISTA CIRCULAR DOBLEMENTE ENLAZADA: ") 
-            print("")   
-            self.Playlist.show()
         self.p = self.Playlist.ptr
     
     def next(self):

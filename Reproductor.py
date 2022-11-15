@@ -1,38 +1,47 @@
 from tkinter import *
 import pygame 
-from PIL import ImageTk, Image
 from Playlist import PlayList
 
 class Reproductor: 
 
     def __init__(self) -> None:
         self.playlist = PlayList()
-        self.root = Tk() 
-        self.root.title('Musique') 
-
-        self.root.geometry("1000x600") 
+        root = Tk() 
+        root.title('Musique')
+        root.iconbitmap('icono_musique.ico')
+        root.geometry("1000x600")
+        
+        mainFrame= Frame(root)
+        mainFrame.pack(side='bottom')
+        mainFrame.config(bg="black")
 
         pygame.mixer.init()
 
-        self.title=Label(self.root,text="Musique", font=("calibri",20,"bold"),bg="grey",fg="white")  
-        self.title.pack(side="top",fill="x")
+        title=Label(root,text="Musique", font=("calibri",20,"bold"),bg="grey",fg="white")  
+        title.pack(side="top",fill="x")
 
-        self.play_button = Button(self.root, text="Play Song", font=("calibri", 20), command=self.play) 
-        self.play_button.pack(pady=40) 
+        play = PhotoImage(file='play.png')
+        atras = PhotoImage(file='atras.png')
+        pausa = PhotoImage(file='pausa.png')
+        adelante = PhotoImage(file='adelante.png')
 
-        self.pause_button = Button(self.root, text="Pause Song", font=("Calibri", 20), command=self.pause) 
-        self.pause_button.pack(pady=41)
 
-        self.resume_button = Button(self.root, text="unpause", font=("Calibri", 20), command=self.resume)
-        self.resume_button.pack(pady=42)
+        play_button = Button(root, image=play, font=("calibri", 20), command=self.play) 
+        play_button.pack(pady=20) 
 
-        self.backward_button = Button(self.root, text="Backward", font=("Calibri", 20), command=self.backward) 
-        self.backward_button.pack(pady=43)
+        pause_button = Button(root, image=pausa, font=("Calibri", 20), command=self.pause) 
+        pause_button.pack(pady=21)
 
-        self.forward_button = Button(self.root, text="Forward", font=("Calibri", 20), command=self.forward) 
-        self.forward_button.pack(pady=43)
+        resume_button = Button(root, text="unpause", font=("Calibri", 20), command=self.resume)
+        resume_button.pack(pady=22)
 
-        self.root.mainloop()
+        backward_button = Button(root, image=atras, font=("Calibri", 20), command=self.backward) 
+        backward_button.pack(pady=23)
+
+        forward_button = Button(root, image=adelante, font=("Calibri", 20), command=self.forward) 
+        forward_button.pack(pady=23)
+
+        root.mainloop()
     
     def play(self): 
         pygame.mixer.music.load(self.playlist.p.data) 
@@ -65,4 +74,5 @@ class Reproductor:
         #falta ubicarla en la interfaz
         #pass
 
-    
+if __name__=="__main__":
+    Reproductor()

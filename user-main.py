@@ -9,9 +9,10 @@ passUsuario = StringVar()
 nombreUsuario = StringVar()
 usuarios=[]
 
+'''
 def createGUI():
     root.title("MUSIQUE")
-    root.iconbitmap('icono_musique.ico')
+    
     root.geometry("1000x600")
     title=Label(root,text="Musique", font=("calibri",20,"bold"),bg="grey",fg="white")  
     title.pack(side="top",fill="x") 
@@ -49,6 +50,7 @@ def createGUI():
 
 
     root.mainloop()
+'''
 
 
 
