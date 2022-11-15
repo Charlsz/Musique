@@ -1,0 +1,5 @@
+canciones\Milhoras.wav, imagenes\Milhoras.png
+canciones\Skyfullofstars.wav, imagenes\Skyfullofstars.png
+canciones\Maps.wav, imagenes\Maps.png
+canciones\Volare.wav, imagenes\Volare.png
+canciones\Labilirrubina.wav, imagenes\Labilirrubina.png

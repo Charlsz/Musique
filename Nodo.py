@@ -1,4 +1,3 @@
-
 class Nodo:
     def __init__(self, rutacancion, rutaimagen) -> None:
         self.data = rutacancion 
@@ -8,3 +7,5 @@ class Nodo:
     
 def __repr__(self):
         return str(self.data)
+
+        
