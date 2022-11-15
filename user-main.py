@@ -4,6 +4,7 @@ from tkinter import messagebox as Messagebox
 from user import usuario
 from Reproductor import Reproductor
 root = Tk()
+
 passUsuario = StringVar()
 nombreUsuario = StringVar()
 usuarios=[]
@@ -54,7 +55,7 @@ def createGUI():
 
 def login_interfaz():
     #ventana principal
-    musique = Toplevel()
+    musique = Tk()
     musique.title("Musique")
     musique.iconbitmap('icono_musique.ico')
 
@@ -91,18 +92,18 @@ def login_interfaz():
     registerButton.grid(column=0,row=3,ipadx=5,ipady=5,padx=10,pady=10)
 
     #salir de login
-    #exit = ttk.Button(mainFrame, text="Salir", command=root.destroy)
-    #exit.grid(column=1,row=4,ipadx=5,ipady=5,padx=10,pady=10)
+    exit = ttk.Button(mainFrame, text="Salir", command=musique.destroy)
+    exit.grid(column=1,row=4,ipadx=5,ipady=5,padx=10,pady=10)
+    musique.mainloop()
 
-def iniciarSesion(musique):
+def iniciarSesion():
     for user in usuarios:
         if user.nombre==nombreUsuario.get():
             test = user.conectar(passUsuario.get())
             if test:
-                Messagebox.showinfo("Conectado",f"Se inicio sesion en [{user.nombre}] exitosamente!","Seguiremos al reproductor de musica MUSIQUE")
+                Messagebox.showinfo("Conectado",f"Se inicio sesion en [{user.nombre}] exitosamente!")
                 nombreUsuario.get()
                 passUsuario.get()
-                musique.iconify
             else:
                 Messagebox.showerror("Error","password incorrecta")
             break
@@ -117,17 +118,6 @@ def registrarUsuario():
     Messagebox.showinfo("Registro Exitoso",f"Se registro el usuario [{name}] correctamente!!!")
     nombreUsuario.get()
     passUsuario.get()
-
-
-"""
-#ventana music player
-    reproductor = ttk.Button(mainFrame,text="ir a reproductor",command=musique)
-    reproductor.grid(column=1,row=3,ipadx=5,ipady=5,padx=10,pady=10)
-
-
-def cerrar_ventana():
-    root.iconify
-"""
 
 
 if __name__=="__main__":
