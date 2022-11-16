@@ -12,6 +12,9 @@ class usuario():
         usuario.numUsuarios=+1
 
     def conectar(self,password=None):
+        '''
+        conecta al usuario para iniciar sesion
+        '''
         if password==None:
             myContra = input("ingresa tu password: ")
         else:
@@ -32,6 +35,9 @@ class usuario():
                 print("No se pudo iniciar sesion, hasta luego")
     
     def desconectar(self):
+        '''
+        desconecta al usuario
+        '''
         if self.conectado:
             print("se ha cerrado sesion")
             self.conectado = False
