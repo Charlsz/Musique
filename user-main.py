@@ -3,61 +3,15 @@ from tkinter import ttk as ttk
 from tkinter import messagebox as Messagebox
 from user import usuario
 from Reproductor import Reproductor
-root = Tk()
 
+musique = Tk()
 passUsuario = StringVar()
 nombreUsuario = StringVar()
 usuarios=[]
 
-'''
-def createGUI():
-    root.title("MUSIQUE")
-    
-    root.geometry("1000x600")
-    title=Label(root,text="Musique", font=("calibri",20,"bold"),bg="grey",fg="white")  
-    title.pack(side="top",fill="x") 
-
-    mainFrame= Frame(root)
-    mainFrame.pack(side='bottom')
-    mainFrame.config(bg="black")
-
-    #imagen1 = PhotoImage(file ='carpeta.jpg')
-    imagen2 = PhotoImage(file ='play.png')
-    imagen3 = PhotoImage(file ='pausa.png')
-    #imagen4 = PhotoImage(file ='repetir.png')
-    #imagen5 = PhotoImage(file ='stop.png')
-    imagen6 = PhotoImage(file ='atras.png')
-    #imagen7 = PhotoImage(file ='adelante.png')
-
-    #boton1 = Button(mainFrame, image= imagen1)
-    #boton1.grid(column=0, row=2, pady=10)
-    boton2 = Button(mainFrame, image= imagen2,command=Reproductor.play)
-    boton2.grid(column=1, row=2, pady=10)
-    boton3 = Button(mainFrame,image= imagen3,command=Reproductor.stop)
-    boton3.grid(column=2, row=2, pady=10)
-    #boton4 = Button(mainFrame,image= imagen4)
-    #boton4.grid(column=3, row=2, pady=10)
-    #boton5 = Button(mainFrame, image= imagen5)
-    #boton5.grid(column=4, row=2, pady=10)
-    atras = Button(mainFrame, image= imagen6,command=Reproductor.back)
-    atras.grid(column=5, row=2, pady=10)
-    #adelante = Button(mainFrame, image= imagen7)
-    #adelante.grid(column=6, row=2, pady=10)
-
-
-
-
-
-
-    root.mainloop()
-'''
-
-
-
 
 def login_interfaz():
     #ventana principal
-    musique = Tk()
     musique.title("Musique")
     musique.iconbitmap('icono_musique.ico')
 
@@ -125,5 +79,4 @@ def registrarUsuario():
 if __name__=="__main__":
     user1 = usuario("carlos","1234")
     usuarios.append(user1)
-    createGUI()
-    #login_interfaz()
+    login_interfaz()
