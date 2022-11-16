@@ -11,6 +11,13 @@ usuarios=[]
 
 
 def login_interfaz():
+    '''
+    interfaz login de usuarios 
+    muestra una ventana
+    '''
+
+
+
     #ventana principal
     musique.title("Musique")
     musique.iconbitmap('icono_musique.ico')
@@ -53,6 +60,9 @@ def login_interfaz():
     musique.mainloop()
 
 def iniciarSesion():
+    '''
+    inicio de sesion al usuario
+    '''
     for user in usuarios:
         if user.nombre==nombreUsuario.get():
             test = user.conectar(passUsuario.get())
@@ -67,6 +77,9 @@ def iniciarSesion():
         Messagebox.showerror("Error","No existen usuarios con ese nombre")
 
 def registrarUsuario():
+    '''
+    registrar usuario para poder iniciar sesion
+    '''
     name = nombreUsuario.get()
     password = passUsuario.get()
     newUser = usuario(name,password)

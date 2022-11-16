@@ -10,10 +10,6 @@ class Reproductor:
         root.title('Musique')
         root.iconbitmap('icono_musique.ico')
         root.geometry("1000x600")
-        
-        mainFrame= Frame(root)
-        mainFrame.pack(side='bottom')
-        mainFrame.config(bg="black")
 
         pygame.mixer.init()
 
@@ -25,21 +21,25 @@ class Reproductor:
         pausa = PhotoImage(file='pausa.png')
         adelante = PhotoImage(file='adelante.png')
 
+        icono = PhotoImage(file='simbolomusica.png')
+        symbol = Label(root,image=icono)
+        symbol.pack()
+
 
         play_button = Button(root, image=play, font=("calibri", 20), command=self.play) 
-        play_button.pack(pady=20) 
+        play_button.pack(side='left',padx=65) 
 
         pause_button = Button(root, image=pausa, font=("Calibri", 20), command=self.pause) 
-        pause_button.pack(pady=21)
+        pause_button.pack(side='left',padx=65)
 
         resume_button = Button(root, text="unpause", font=("Calibri", 20), command=self.resume)
-        resume_button.pack(pady=22)
+        resume_button.pack(side='left',padx=65)
 
         backward_button = Button(root, image=atras, font=("Calibri", 20), command=self.backward) 
-        backward_button.pack(pady=23)
+        backward_button.pack(side='left',padx=65)
 
         forward_button = Button(root, image=adelante, font=("Calibri", 20), command=self.forward) 
-        forward_button.pack(pady=23)
+        forward_button.pack(side='left',padx=65)
 
         root.mainloop()
     
