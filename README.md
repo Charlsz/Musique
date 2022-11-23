@@ -1,6 +1,6 @@
 # Musique
 
-_Como abrir el programa
+_Como abrir el programa_
 
 1. Instalar visual studio code
 https://code.visualstudio.com/download
