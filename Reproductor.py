@@ -5,17 +5,18 @@ from Playlist import PlayList
 class Reproductor: 
 
     def __init__(self) -> None:
-        self.playlist = PlayList()
+        self.playlist = PlayList() #in order to have access to atributes and methods of the class Playlist.
         root = Tk() 
         root.title('Musique')
         root.iconbitmap('icono_musique.ico')
         root.geometry("1000x600")
 
-        pygame.mixer.init()
+        pygame.mixer.init() #initialize the mixer module
 
         title=Label(root,text="Musique", font=("calibri",20,"bold"),bg="grey",fg="white")  
         title.pack(side="top",fill="x")
 
+        #interface 
         play = PhotoImage(file='play.png')
         atras = PhotoImage(file='atras.png')
         pausa = PhotoImage(file='pausa.png')
@@ -41,38 +42,33 @@ class Reproductor:
         forward_button = Button(root, image=adelante, font=("Calibri", 20), command=self.forward) 
         forward_button.pack(side='left',padx=65)
 
-        root.mainloop()
+        root.mainloop() 
     
     def play(self): 
-        pygame.mixer.music.load(self.playlist.p.data) 
+        pygame.mixer.music.load(self.playlist.p.data) #
         pygame.mixer.music.play(loops=0) 
     
 
     def stop(self):
-        pygame.mixer.music.stop()
+        pygame.mixer.music.stop() #stop playback of all sound channels
 
     def pause(self):
-        pygame.mixer.music.pause()
+        pygame.mixer.music.pause() #temporarily stop playback of all sound channels
     
     def resume(self):
-        pygame.mixer.music.unpause()
+        pygame.mixer.music.unpause() #resume paused playback of sound channels
     
-    def backward(self):
+    def backward(self): #plays the previous song
         
         self.stop()
-        self.playlist.prev()
+        self.playlist.prev() 
         self.play()
         
-    def forward(self):
+    def forward(self): #plays the next song -+
         
         self.stop()
         self.playlist.next()
         self.play()
-
-        #def image(self):
-        #img = ImageTk.PhotoImage(Image.open("imagenes\Labilirrubina.txt"))
-        #falta ubicarla en la interfaz
-        #pass
 
 if __name__=="__main__":
     Reproductor()

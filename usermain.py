@@ -27,7 +27,7 @@ def login_interfaz():
     mainFrame.pack()
     mainFrame.config(width=480,height=320,bg="#FFDFD3")
 
-    #titulos y textoss
+    #titulos y textos
     tittle = Label(mainFrame,text="Login usuarios",font="Arial")
     tittle.grid(column=0,padx=10,pady=10,row=0,columnspan=5)
 
